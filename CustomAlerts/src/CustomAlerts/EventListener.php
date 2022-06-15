@@ -81,7 +81,7 @@ class EventListener implements Listener {
      */
     public function onPlayerPreLogin(PlayerPreLoginEvent $event){
     	$player = $event->getPlayer();
-    	if(count($this->plugin->getServer()->getOnlinePlayers()) - 1 < $this->plugin->getServer()->getMaxPlayers()){
+    	if(count($this->plugin->getServer()->getOnlinePlayers()) >= $this->plugin->getServer()->getMaxPlayers()){
     	    //Whitelist Message
     		if(!$this->plugin->getServer()->isWhitelisted($player->getName())){
     		    $cevent = new CustomAlertsWhitelistKickEvent($player);
